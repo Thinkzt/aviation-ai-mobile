@@ -92,7 +92,7 @@ def parse_metar(text, icao):
         vis_match = re.search(r'(9999|\d{4})', metar)
         cld_match = re.search(r'(FEW|SCT|BKN|OVC)(\d{3})', metar)
         
-        temp = f"{temp_match.group(1)}°C" if temp_match else '--°C"
+        temp = f"{temp_match.group(1)}degC" if temp_match else '--degC'
         wind = f"{wind_match.group(2)}m/s" if wind_match else '--m/s'
         vis = f"{vis_match.group(1)}m" if vis_match else '--m'
         cld = f"{cld_match.group(2)}00ft" if cld_match else 'NSC'
@@ -112,12 +112,12 @@ def parse_metar(text, icao):
 def get_mock_weather(icao):
     """生成模拟气象数据"""
     base = {
-        'ZPPP': {'temp': '18°C', 'wind': '3m/s SE', 'vis': '5000m', 'cld': '3000ft'},
-        'ZPLJ': {'temp': '12°C', 'wind': '5m/s NW', 'vis': '8000m', 'cld': '4500ft'},
-        'ZPDL': {'temp': '15°C', 'wind': '2m/s', 'vis': '6000m', 'cld': '2500ft'},
-        'ZPJH': {'temp': '25°C', 'wind': '2m/s', 'vis': '9999m', 'cld': '无云'},
-        'ZPMS': {'temp': '20°C', 'wind': '4m/s', 'vis': '4000m', 'cld': '2000ft'},
-        'ZPDQ': {'temp': '8°C', 'wind': '6m/s', 'vis': '7000m', 'cld': '3500ft'},
+        'ZPPP': {'temp': '18degC', 'wind': '3m/s SE', 'vis': '5000m', 'cld': '3000ft'},
+        'ZPLJ': {'temp': '12degC', 'wind': '5m/s NW', 'vis': '8000m', 'cld': '4500ft'},
+        'ZPDL': {'temp': '15degC', 'wind': '2m/s', 'vis': '6000m', 'cld': '2500ft'},
+        'ZPJH': {'temp': '25degC', 'wind': '2m/s', 'vis': '9999m', 'cld': '无云'},
+        'ZPMS': {'temp': '20degC', 'wind': '4m/s', 'vis': '4000m', 'cld': '2000ft'},
+        'ZPDQ': {'temp': '8degC', 'wind': '6m/s', 'vis': '7000m', 'cld': '3500ft'},
     }
     return {
         'icao': icao,
